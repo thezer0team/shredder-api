@@ -1,4 +1,4 @@
-package com.thezer0team.shredder.shredderapi
+package com.thezer0team.shredderapi
 
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
