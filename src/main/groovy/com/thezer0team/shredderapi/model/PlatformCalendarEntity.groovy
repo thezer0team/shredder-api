@@ -19,4 +19,9 @@ class PlatformCalendarEntity {
 
     @Column(name = 'name')
     String name
+
+    @OneToMany(mappedBy = 'platformCalendar')
+    Set<PlatformEventEntity> events
+
+
 }

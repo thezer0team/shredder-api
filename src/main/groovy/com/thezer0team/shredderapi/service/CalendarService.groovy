@@ -5,6 +5,7 @@ import com.thezer0team.shredderapi.dao.PlatformCalendarDao
 import com.thezer0team.shredderapi.dao.UserDao
 import com.thezer0team.shredderapi.dto.request.PlatformCalendarRequest
 import com.thezer0team.shredderapi.dto.response.ApplicationCalendarResponse
+import com.thezer0team.shredderapi.dto.response.PlatformCalendarResponse
 import com.thezer0team.shredderapi.dto.transform.ApplicationCalendarTransform
 import com.thezer0team.shredderapi.dto.transform.PlatformCalendarTransform
 import com.thezer0team.shredderapi.model.ApplicationCalendarEntity
@@ -39,9 +40,19 @@ class CalendarService {
         return applicationCalendarDao.readApplicationCalendarById(platformCalendarRequest.applicationCalendarId.toString())
     }
 
-    ApplicationCalendarResponse getResponseFromEntity(ApplicationCalendarEntity applicationCalendarEntity) {
+    ApplicationCalendarResponse getApplicationCalendarResponseFromEntity(ApplicationCalendarEntity applicationCalendarEntity) {
 
 
         return applicationCalendarTransform.getResponseFromEntity(applicationCalendarEntity)
+    }
+
+    PlatformCalendarEntity createPlatformCalendar(PlatformCalendarRequest platformCalendarRequest) {
+
+        return platformCalendarTransform.getEntityFromRequest(platformCalendarRequest)
+    }
+
+    PlatformCalendarResponse getPlatformCalendarResponseFromEntity(PlatformCalendarEntity platformCalendarEntity) {
+
+        return platformCalendarTransform.getResponseFromEntity(platformCalendarEntity)
     }
 }
