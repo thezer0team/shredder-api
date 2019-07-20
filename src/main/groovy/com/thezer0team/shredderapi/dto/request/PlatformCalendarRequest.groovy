@@ -19,4 +19,7 @@ class PlatformCalendarRequest {
 
     @JsonProperty('name')
     String name
+
+    @JsonProperty('calendar_events')
+    List<PlatformEventRequest> platformEvents
 }
