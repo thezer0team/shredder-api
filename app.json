@@ -1,0 +1,22 @@
+{
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/gradle"
+    }
+  ],
+  "env": {
+    "amazon.dynamodb.endpoint": "https://localhost:8000/"
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "name": "shredder-api",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}
