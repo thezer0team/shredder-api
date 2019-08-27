@@ -48,7 +48,10 @@ class CalendarService {
 
     PlatformCalendarEntity createPlatformCalendar(PlatformCalendarRequest platformCalendarRequest) {
 
-        return platformCalendarTransform.getEntityFromRequest(platformCalendarRequest)
+        PlatformCalendarEntity platformCalendarEntity = platformCalendarTransform.getEntityFromRequest(platformCalendarRequest)
+
+        return platformCalendarDao.createNewPlatformCalendar(platformCalendarEntity)
+
     }
 
     PlatformCalendarResponse getPlatformCalendarResponseFromEntity(PlatformCalendarEntity platformCalendarEntity) {

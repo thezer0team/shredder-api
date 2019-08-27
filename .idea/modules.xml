@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/shredder-api.iml" filepath="$PROJECT_DIR$/shredder-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shredder-api.iml" filepath="$PROJECT_DIR$/shredder-api.iml" group="shredder-api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/shredder-api_main.iml" filepath="$PROJECT_DIR$/.idea/modules/shredder-api_main.iml" group="shredder-api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/shredder-api_test.iml" filepath="$PROJECT_DIR$/.idea/modules/shredder-api_test.iml" group="shredder-api" />
     </modules>
   </component>
 </project>

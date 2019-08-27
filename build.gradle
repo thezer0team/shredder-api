@@ -23,6 +23,8 @@ dependencies {
 	compile group: 'com.amazonaws', name: 'aws-java-sdk-dynamodb', version: '1.11.593'
 	compile group: 'com.github.derjust', name: 'spring-data-dynamodb', version: '5.1.0'
 	runtime 'com.h2database:h2'
+	
+	//Test
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 }
