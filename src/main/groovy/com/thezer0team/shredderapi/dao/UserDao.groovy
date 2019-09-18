@@ -2,6 +2,7 @@ package com.thezer0team.shredderapi.dao
 
 import com.thezer0team.shredderapi.model.UserEntity
 import com.thezer0team.shredderapi.repository.UserRepository
+
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 

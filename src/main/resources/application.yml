@@ -1,15 +1,9 @@
 spring:
   main:
     allow-bean-definition-overriding: true
-  datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:localhost;DB_CLOSE_ON_EXIT=FALSE
-    username: admin
-    password:
 
 amazon:
   dynamodb:
-    endpoint: https://localhost:8000/
-  aws:
-    accesskey: AKIAYBOKYRYCZV7AFWI2
-    secretkey: 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
+    endpoint: https://us-east-2.console.aws.amazon.com/dynamodb/home?region=us-east-2
+    accesskey: ${AWS_ACCESS_KEY_ID}
+    secretkey: ${AWS_SECRET_KEY}

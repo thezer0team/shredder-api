@@ -11,6 +11,8 @@ class ApplicationCalendarDao {
     @Autowired
     ApplicationCalendarRepository applicationCalendarRepository
 
+
+
     ApplicationCalendarEntity createNewApplicationCalendar(ApplicationCalendarEntity applicationCalendarEntity) {
         return applicationCalendarRepository.save(applicationCalendarEntity)
     }
