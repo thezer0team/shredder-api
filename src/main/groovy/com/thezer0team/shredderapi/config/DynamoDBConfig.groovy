@@ -10,19 +10,20 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapperConfig
 import com.thezer0team.shredderapi.repository.ApplicationCalendarRepository
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
-import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
-import org.socialsignin.spring.data.dynamodb.mapping.DynamoDBMappingContext
-import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
 import com.thezer0team.shredderapi.repository.PlatformCalendarRepository
 import com.thezer0team.shredderapi.repository.UserRepository
+import org.socialsignin.spring.data.dynamodb.mapping.DynamoDBMappingContext
 import org.socialsignin.spring.data.dynamodb.repository.config.EnableDynamoDBRepositories
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.boot.autoconfigure.domain.EntityScan
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Primary
+
 
 @Configuration
 @EnableAutoConfiguration(exclude = [DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class, HibernateJpaAutoConfiguration.class])
