@@ -6,7 +6,6 @@ import com.thezer0team.shredderapi.model.PlatformCalendarEntity
 import com.thezer0team.shredderapi.model.PlatformEventEntity
 import org.springframework.stereotype.Component
 
-import java.time.Instant
 
 @Component
 class PlatformCalendarTransform {
@@ -21,8 +20,8 @@ class PlatformCalendarTransform {
                     new PlatformEventEntity(
                             name: requestEvent.name,
                             description: requestEvent.description,
-                            startTime: Instant.parse(requestEvent.startTime),
-                            endTime: Instant.parse(requestEvent.endTime),
+                            startTime: Timestamp.parse(requestEvent.startTime),
+                            endTime: Timestamp.parse(requestEvent.endTime),
                             location: requestEvent.location
                     )
                 }
