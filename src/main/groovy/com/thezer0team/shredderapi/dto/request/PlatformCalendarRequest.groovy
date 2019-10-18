@@ -8,8 +8,8 @@ import groovy.transform.Canonical
 @JsonIgnoreProperties(ignoreUnknown = true)
 class PlatformCalendarRequest {
 
-    @JsonProperty('user_email')
-    String userEmail
+    @JsonProperty('user_id')
+    String userId
 
     @JsonProperty('source_type')
     String sourceType

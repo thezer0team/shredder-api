@@ -1,6 +1,5 @@
 package com.thezer0team.shredderapi.model
 
-import org.springframework.cloud.gcp.data.datastore.core.mapping.Descendants
 import org.springframework.cloud.gcp.data.datastore.core.mapping.Entity
 import org.springframework.cloud.gcp.data.datastore.core.mapping.Field
 import org.springframework.cloud.gcp.data.datastore.core.mapping.Reference

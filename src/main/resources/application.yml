@@ -11,4 +11,4 @@ spring:
       datastore:
         namespace: shredder_dev
       credentials:
-        location: File:<enter json file path>
+        location:

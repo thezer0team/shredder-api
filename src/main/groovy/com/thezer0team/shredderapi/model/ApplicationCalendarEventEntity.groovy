@@ -1,5 +1,6 @@
 package com.thezer0team.shredderapi.model
 
+import com.google.cloud.Timestamp
 import com.google.common.collect.ImmutableSet
 import org.springframework.cloud.gcp.data.datastore.core.mapping.Entity
 import org.springframework.cloud.gcp.data.datastore.core.mapping.Field
@@ -13,8 +14,17 @@ class ApplicationCalendarEventEntity {
     @Field(name = 'event_id')
     String eventId
 
-    String nativeEventId
+    String platformEventId
 
-    ImmutableSet<ApplicationCalendarEntity> calendars
+    String name
+
+    String description
+
+    Timestamp startTime
+
+    Timestamp endTime
+
+    //TODO research location objects
+    String location
 
 }

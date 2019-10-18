@@ -10,8 +10,8 @@ import org.springframework.data.annotation.Id
 class PlatformEventEntity {
 
     @Id
-    @Field(name = 'platform_calendar_id')
-    String platformCalendarId
+    @Field(name = 'platform_event_id')
+    String platformEventId
 
     String name
 

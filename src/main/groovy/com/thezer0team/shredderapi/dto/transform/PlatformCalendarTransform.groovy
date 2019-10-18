@@ -5,23 +5,24 @@ import com.thezer0team.shredderapi.dto.response.PlatformCalendarResponse
 import com.thezer0team.shredderapi.model.PlatformCalendarEntity
 import com.thezer0team.shredderapi.model.PlatformEventEntity
 import org.springframework.stereotype.Component
+import com.google.cloud.Timestamp
 
 
 @Component
 class PlatformCalendarTransform {
 
-    PlatformCalendarEntity getEntityFromRequest(PlatformCalendarRequest platformCalendarRequest) {
+    static PlatformCalendarEntity getEntityFromRequest(PlatformCalendarRequest platformCalendarRequest) {
 
         return new PlatformCalendarEntity(
                 sourceType: platformCalendarRequest.sourceType,
-                applicationCalendarId: platformCalendarRequest.applicationCalendarId,
-                name: platformCalendarRequest.name,
+                platformCalendarId: platformCalendarRequest.applicationCalendarId,
+                platformCalendarName: platformCalendarRequest.name,
                 events: platformCalendarRequest.platformEvents.collect { requestEvent ->
                     new PlatformEventEntity(
                             name: requestEvent.name,
                             description: requestEvent.description,
-                            startTime: Timestamp.parse(requestEvent.startTime),
-                            endTime: Timestamp.parse(requestEvent.endTime),
+                            startTime: Timestamp.parseTimestamp(requestEvent.startTime),
+                            endTime: Timestamp.parseTimestamp(requestEvent.endTime),
                             location: requestEvent.location
                     )
                 }
@@ -29,12 +30,11 @@ class PlatformCalendarTransform {
     }
 
 
-
-    PlatformCalendarResponse getResponseFromEntity(PlatformCalendarEntity platformCalendarEntity) {
+    static PlatformCalendarResponse getResponseFromEntity(PlatformCalendarEntity platformCalendarEntity) {
 
         return new PlatformCalendarResponse(
                 platform: platformCalendarEntity.sourceType,
-                calendarName: platformCalendarEntity.name,
+                calendarName: platformCalendarEntity.platformCalendarName,
                 numberOfEvents: platformCalendarEntity.events.size()
         )
     }

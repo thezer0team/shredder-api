@@ -24,9 +24,9 @@ class PlatformCalendarController {
 
     @PostMapping(value = '', produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(code = HttpStatus.CREATED)
-    ResponseEntity<ApplicationCalendarResponse> createNewCalendar(@RequestBody @Valid PlatformCalendarRequest platformCalendarRequest) {
+    ResponseEntity<ApplicationCalendarResponse> createNewCalendar(@RequestParam(name = 'calendar_name') String calendarName, @RequestBody @Valid PlatformCalendarRequest platformCalendarRequest) {
 
-        ApplicationCalendarEntity applicationCalendarEntity = calendarService.assignNewPlatformToCalendar(platformCalendarRequest)
+        ApplicationCalendarEntity applicationCalendarEntity = calendarService.assignNewPlatformToCalendar(calendarName, platformCalendarRequest)
 
         ApplicationCalendarResponse applicationCalendarResponse = calendarService.getApplicationCalendarResponseFromEntity(applicationCalendarEntity)
 

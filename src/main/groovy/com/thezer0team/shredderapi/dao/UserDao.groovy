@@ -19,7 +19,7 @@ class UserDao {
 
     @Transactional
     UserEntity readUserById(String userId) {
-        return userRepository.findById(userId)
+        return userRepository.findById(userId).get()
     }
 
     @Transactional
