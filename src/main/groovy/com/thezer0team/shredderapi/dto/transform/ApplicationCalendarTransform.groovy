@@ -1,10 +1,10 @@
 package com.thezer0team.shredderapi.dto.transform
 
 import com.google.common.collect.ImmutableSet
-import com.thezer0team.shredderapi.dto.response.ApplicationCalendarResponse
 import com.thezer0team.shredderapi.model.ApplicationCalendarEntity
 import com.thezer0team.shredderapi.model.ApplicationCalendarEventEntity
 import com.thezer0team.shredderapi.model.PlatformEventEntity
+import com.thezer0team.shredderapi.model.response.ApplicationCalendarResponse
 import org.springframework.stereotype.Component
 
 @Component
@@ -18,7 +18,9 @@ class ApplicationCalendarTransform {
      * */
     static ImmutableSet<ApplicationCalendarEventEntity> getEventsFromPlatform(ImmutableSet<PlatformEventEntity> platformEventEntities) {
 
-        return ImmutableSet<ApplicationCalendarEventEntity>.copyOf(platformEventEntities.collect() { platformEvent ->
+        ImmutableSet<ApplicationCalendarEventEntity> applicationCalendarEventEntities = []
+
+        return applicationCalendarEventEntities.copyOf(platformEventEntities.collect() { platformEvent ->
             new ApplicationCalendarEventEntity(
                     platformEventId: platformEvent.platformEventId,
                     name: platformEvent.name,

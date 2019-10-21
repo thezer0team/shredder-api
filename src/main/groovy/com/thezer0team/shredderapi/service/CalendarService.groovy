@@ -1,18 +1,16 @@
 package com.thezer0team.shredderapi.service
 
 import com.google.common.collect.ImmutableSet
-import com.thezer0team.shredderapi.dao.ApplicationCalendarDao
 import com.thezer0team.shredderapi.dao.PlatformCalendarDao
 import com.thezer0team.shredderapi.dao.UserDao
-import com.thezer0team.shredderapi.dto.request.PlatformCalendarRequest
-import com.thezer0team.shredderapi.dto.response.ApplicationCalendarResponse
-import com.thezer0team.shredderapi.dto.response.PlatformCalendarResponse
 import com.thezer0team.shredderapi.dto.transform.ApplicationCalendarTransform
 import com.thezer0team.shredderapi.dto.transform.PlatformCalendarTransform
 import com.thezer0team.shredderapi.model.ApplicationCalendarEntity
-import com.thezer0team.shredderapi.model.ApplicationCalendarEventEntity
 import com.thezer0team.shredderapi.model.PlatformCalendarEntity
 import com.thezer0team.shredderapi.model.UserEntity
+import com.thezer0team.shredderapi.model.request.PlatformCalendarRequest
+import com.thezer0team.shredderapi.model.response.ApplicationCalendarResponse
+import com.thezer0team.shredderapi.model.response.PlatformCalendarResponse
 import groovy.util.logging.Slf4j
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.rest.webmvc.ResourceNotFoundException
@@ -44,7 +42,7 @@ class CalendarService {
      * @param platformCalendarRequest receives new platform calendar request with user email
      * @return applicationCalendarEntity
      * */
-    ApplicationCalendarEntity assignNewPlatformToCalendar(String calendarName, PlatformCalendarRequest platformCalendarRequest) {
+    UserEntity assignNewPlatformToCalendar(String calendarName, PlatformCalendarRequest platformCalendarRequest) {
 
         UserEntity userAccount = userDao.readUserById(platformCalendarRequest.userId)
 
@@ -56,19 +54,22 @@ class CalendarService {
 
         platformCalendarDao.createNewPlatformCalendar(newPlatformCalendar)
 
+        ImmutableSet<PlatformCalendarEntity> platformCalendarEntities = []
+
         userAccount.applicationCalendar = new ApplicationCalendarEntity(
                 name: calendarName,
-                platformCalendars: ImmutableSet<PlatformCalendarEntity>.of(newPlatformCalendar),
+                platformCalendars: platformCalendarEntities.of(newPlatformCalendar),
                 events: ApplicationCalendarTransform.getEventsFromPlatform(newPlatformCalendar.events)
         )
 
         userDao.updateUser(userAccount)
 
-        return userDao.readUserById(userAccount.userId).applicationCalendar
+        return userDao.readUserById(userAccount.userId)
     }
 
-    ApplicationCalendarResponse getApplicationCalendarResponseFromEntity(ApplicationCalendarEntity applicationCalendarEntity) {
+    ApplicationCalendarResponse getApplicationCalendarResponseFromUserEntity(UserEntity userEntity) {
 
+        
 
         return applicationCalendarTransform.getResponseFromEntity(applicationCalendarEntity)
     }

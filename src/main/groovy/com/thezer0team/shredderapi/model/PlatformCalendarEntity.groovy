@@ -12,7 +12,7 @@ class PlatformCalendarEntity {
 
     @Id
     @Field(name = 'platform_calendar_id')
-    String platformCalendarId
+    Long platformCalendarId
 
     @Field(name = 'platform_calendar_name')
     String platformCalendarName

@@ -11,7 +11,7 @@ class PlatformEventEntity {
 
     @Id
     @Field(name = 'platform_event_id')
-    String platformEventId
+    Long platformEventId
 
     String name
 

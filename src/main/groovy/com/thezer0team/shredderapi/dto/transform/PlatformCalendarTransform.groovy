@@ -1,9 +1,9 @@
 package com.thezer0team.shredderapi.dto.transform
 
-import com.thezer0team.shredderapi.dto.request.PlatformCalendarRequest
-import com.thezer0team.shredderapi.dto.response.PlatformCalendarResponse
 import com.thezer0team.shredderapi.model.PlatformCalendarEntity
 import com.thezer0team.shredderapi.model.PlatformEventEntity
+import com.thezer0team.shredderapi.model.request.PlatformCalendarRequest
+import com.thezer0team.shredderapi.model.response.PlatformCalendarResponse
 import org.springframework.stereotype.Component
 import com.google.cloud.Timestamp
 

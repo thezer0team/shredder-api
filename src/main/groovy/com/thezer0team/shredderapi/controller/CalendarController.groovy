@@ -1,10 +1,11 @@
 package com.thezer0team.shredderapi.controller
 
-import com.thezer0team.shredderapi.dto.request.PlatformCalendarRequest
-import com.thezer0team.shredderapi.dto.response.ApplicationCalendarResponse
-import com.thezer0team.shredderapi.dto.response.PlatformCalendarResponse
-import com.thezer0team.shredderapi.model.ApplicationCalendarEntity
+
 import com.thezer0team.shredderapi.model.PlatformCalendarEntity
+import com.thezer0team.shredderapi.model.UserEntity
+import com.thezer0team.shredderapi.model.request.PlatformCalendarRequest
+import com.thezer0team.shredderapi.model.response.ApplicationCalendarResponse
+import com.thezer0team.shredderapi.model.response.PlatformCalendarResponse
 import com.thezer0team.shredderapi.service.CalendarService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -16,27 +17,27 @@ import javax.validation.Valid
 
 @RestController
 @RequestMapping("calendar/")
-class PlatformCalendarController {
+class CalendarController {
 
     @Autowired
     CalendarService calendarService
 
 
-    @PostMapping(value = '', produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = 'application/create', produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(code = HttpStatus.CREATED)
     ResponseEntity<ApplicationCalendarResponse> createNewCalendar(@RequestParam(name = 'calendar_name') String calendarName, @RequestBody @Valid PlatformCalendarRequest platformCalendarRequest) {
 
-        ApplicationCalendarEntity applicationCalendarEntity = calendarService.assignNewPlatformToCalendar(calendarName, platformCalendarRequest)
+        UserEntity user = calendarService.assignNewPlatformToCalendar(calendarName, platformCalendarRequest)
 
-        ApplicationCalendarResponse applicationCalendarResponse = calendarService.getApplicationCalendarResponseFromEntity(applicationCalendarEntity)
+        ApplicationCalendarResponse applicationCalendarResponse = calendarService.getApplicationCalendarResponseFromUserEntity(user)
 
         return new ResponseEntity(applicationCalendarResponse, HttpStatus.CREATED)
     }
 
-    @PutMapping(value = 'create', produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = 'platform/create', produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(code = HttpStatus.CREATED)
     ResponseEntity<PlatformCalendarResponse> createPlatformCalendar(@RequestParam(name = 'platform') String platform,
-            @RequestBody @Valid PlatformCalendarRequest platformCalendarRequest) {
+                                                                    @RequestBody @Valid PlatformCalendarRequest platformCalendarRequest) {
 
         //TODO if platform != [gmail,ical,outlook,facebook] throw err
 

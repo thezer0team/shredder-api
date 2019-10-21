@@ -26,4 +26,8 @@ class UserDao {
     UserEntity updateUser(UserEntity userEntity) {
         return userRepository.save(userEntity)
     }
+
+    def readUserByEmail(String userEmail) {
+        return userRepository.findByUserEmail(userEmail)
+    }
 }

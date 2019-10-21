@@ -13,7 +13,7 @@ class ApplicationCalendarEntity {
 
     @Id
     @Field(name = 'application_calendar_id')
-    String applicationCalendarId
+    Long applicationCalendarId
 
     @Field(name = 'application_calendar_name')
     String name

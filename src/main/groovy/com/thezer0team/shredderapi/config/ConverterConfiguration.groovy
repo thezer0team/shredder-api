@@ -4,11 +4,11 @@ import org.springframework.cloud.gcp.data.datastore.core.convert.DatastoreCustom
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
-import static com.thezer0team.shredderapi.model.converter.CalendarConverters.APPLICATION_CALENDAR_ENTITY_STRING_CONVERTER
-import static com.thezer0team.shredderapi.model.converter.CalendarConverters.LIST_IMMUTABLE_SET_CONVERTER
-import static com.thezer0team.shredderapi.model.converter.CalendarConverters.PLATFORM_CALENDAR_ENTITY_STRING_CONVERTER
-import static com.thezer0team.shredderapi.model.converter.CalendarConverters.STRING_APPLICATION_CALENDAR_ENTITY_CONVERTER
-import static com.thezer0team.shredderapi.model.converter.CalendarConverters.STRING_PLATFORM_CALENDAR_ENTITY_CONVERTER
+import static com.thezer0team.shredderapi.dto.converter.CalendarConverters.APPLICATION_CALENDAR_ENTITY_STRING_CONVERTER
+import static com.thezer0team.shredderapi.dto.converter.CalendarConverters.LIST_IMMUTABLE_SET_CONVERTER
+import static com.thezer0team.shredderapi.dto.converter.CalendarConverters.PLATFORM_CALENDAR_ENTITY_STRING_CONVERTER
+import static com.thezer0team.shredderapi.dto.converter.CalendarConverters.STRING_APPLICATION_CALENDAR_ENTITY_CONVERTER
+import static com.thezer0team.shredderapi.dto.converter.CalendarConverters.STRING_PLATFORM_CALENDAR_ENTITY_CONVERTER
 
 @Configuration
 class ConverterConfiguration {

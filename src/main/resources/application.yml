@@ -11,4 +11,4 @@ spring:
       datastore:
         namespace: shredder_dev
       credentials:
-        location:
+        location: File:C:\Users\nick\OneDrive\Documents\Keys\shredder-dev-112140f5cfc3.json

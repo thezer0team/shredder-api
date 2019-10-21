@@ -1,4 +1,4 @@
-package com.thezer0team.shredderapi.model.converter
+package com.thezer0team.shredderapi.dto.converter
 
 import com.google.common.collect.ImmutableSet
 import com.thezer0team.shredderapi.model.ApplicationCalendarEntity
