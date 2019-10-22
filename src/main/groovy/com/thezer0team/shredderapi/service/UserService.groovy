@@ -8,6 +8,7 @@ import com.thezer0team.shredderapi.model.request.UserRequest
 import com.thezer0team.shredderapi.model.response.UserResponse
 import groovy.util.logging.Slf4j
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
 
 @Slf4j
@@ -22,15 +23,16 @@ class UserService {
 
     UserEntity createUser(UserRequest userRequest) {
 
-        if(userDao.readUserByEmail(userRequest.userEmail).size() > 0) {
-            log.warn("User ${userRequest.userEmail} already exists", new ResourceException("User ${UserRequest.userEmail}"))
-        }
-
         return userDao.createNewUser(userTransform.getEntityFromRequest(userRequest))
     }
 
     UserResponse getResponseFromEntity(UserEntity userEntity) {
 
         return userTransform.getResponseFromEntity(userEntity)
+    }
+
+    ResponseEntity<List<String>> getAllAccounts() {
+
+        return userDao.getAllUsers()
     }
 }
