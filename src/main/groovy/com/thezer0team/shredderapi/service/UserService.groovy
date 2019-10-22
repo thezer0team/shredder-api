@@ -22,10 +22,6 @@ class UserService {
 
     UserEntity createUser(UserRequest userRequest) {
 
-        if(userDao.readUserByEmail(userRequest.userEmail).size() > 0) {
-            log.warn("User ${userRequest.userEmail} already exists", new ResourceException("User ${UserRequest.userEmail}"))
-        }
-
         return userDao.createNewUser(userTransform.getEntityFromRequest(userRequest))
     }
 
