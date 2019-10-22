@@ -13,12 +13,10 @@ class ApplicationCalendarDao {
     @Autowired
     ApplicationCalendarRepository applicationCalendarRepository
 
-    @Transactional
     ApplicationCalendarEntity createNewApplicationCalendar(ApplicationCalendarEntity applicationCalendarEntity) {
         return applicationCalendarRepository.save(applicationCalendarEntity)
     }
 
-    @Transactional
     ApplicationCalendarEntity readApplicationCalendarById(String id) {
         return applicationCalendarRepository.findById(id).get()
     }

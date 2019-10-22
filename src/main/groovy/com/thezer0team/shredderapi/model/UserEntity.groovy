@@ -1,5 +1,6 @@
 package com.thezer0team.shredderapi.model
 
+import com.google.cloud.datastore.Key
 import org.springframework.cloud.gcp.data.datastore.core.mapping.Entity
 import org.springframework.cloud.gcp.data.datastore.core.mapping.Field
 import org.springframework.cloud.gcp.data.datastore.core.mapping.Reference
@@ -11,7 +12,7 @@ class UserEntity {
 
     @Id
     @Field(name = "user_id")
-    Long userId
+    Key userId
 
     @Field(name = 'user_name')
     String userName

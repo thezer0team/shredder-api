@@ -1,6 +1,7 @@
 package com.thezer0team.shredderapi.model
 
 import com.google.cloud.Timestamp
+import com.google.cloud.datastore.Key
 import org.springframework.cloud.gcp.data.datastore.core.mapping.Entity
 import org.springframework.cloud.gcp.data.datastore.core.mapping.Field
 import org.springframework.data.annotation.Id
@@ -11,7 +12,7 @@ class ApplicationCalendarEventEntity {
 
     @Id
     @Field(name = 'event_id')
-    Long eventId
+    Key eventId
 
     String platformEventId
 
