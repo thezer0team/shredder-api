@@ -1,6 +1,6 @@
 package com.thezer0team.shredderapi.service
 
-import com.google.cloud.datastore.KeyFactory
+
 import com.thezer0team.shredderapi.dao.UserDao
 import com.thezer0team.shredderapi.dto.transform.UserTransform
 import com.thezer0team.shredderapi.model.UserEntity
@@ -31,8 +31,13 @@ class UserService {
         return userTransform.getResponseFromEntity(userEntity)
     }
 
-    ResponseEntity<List<String>> getAllAccounts() {
+    List<String> getAllAccounts() {
 
-        return userDao.getAllUsers()
+        return userDao.getAllUserIds()
+    }
+
+    UserEntity getUser(UserRequest userRequest) {
+
+        return userDao.getUserByEmail(userRequest.userEmail)
     }
 }

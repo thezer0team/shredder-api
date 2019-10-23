@@ -12,3 +12,5 @@ spring:
         namespace: shredder_dev
       credentials:
         location: File:C:\Users\nick\OneDrive\Documents\Keys\shredder-dev-112140f5cfc3.json
+    project:
+      id: shredder-dev

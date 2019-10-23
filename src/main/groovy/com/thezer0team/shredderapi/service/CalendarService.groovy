@@ -1,5 +1,6 @@
 package com.thezer0team.shredderapi.service
 
+import com.google.cloud.datastore.Key
 import com.google.common.collect.ImmutableSet
 import com.thezer0team.shredderapi.dao.PlatformCalendarDao
 import com.thezer0team.shredderapi.dao.UserDao
@@ -44,10 +45,10 @@ class CalendarService {
      * */
     UserEntity assignNewPlatformToCalendar(String calendarName, PlatformCalendarRequest platformCalendarRequest) {
 
-        UserEntity userAccount = userDao.readUserById(platformCalendarRequest.userId)
+        UserEntity userAccount = userDao.readUserById(Key.fromUrlSafe(platformCalendarRequest.urlSafeKey))
 
         if (!userAccount) {
-            log.warn("Unable to locate user ${platformCalendarRequest.userId}", new ResourceNotFoundException("UserEntity ${platformCalendarRequest.userId}"))
+            log.warn("Unable to locate user ${platformCalendarRequest.urlSafeKey}", new ResourceNotFoundException("UserEntity ${platformCalendarRequest.urlSafeKey}"))
         }
 
         PlatformCalendarEntity newPlatformCalendar = platformCalendarTransform.getEntityFromRequest(platformCalendarRequest)
@@ -69,9 +70,7 @@ class CalendarService {
 
     ApplicationCalendarResponse getApplicationCalendarResponseFromUserEntity(UserEntity userEntity) {
 
-        
-
-        return applicationCalendarTransform.getResponseFromEntity(applicationCalendarEntity)
+        return applicationCalendarTransform.getResponseFromEntity(userEntity.applicationCalendar)
     }
 
     PlatformCalendarEntity createPlatformCalendar(PlatformCalendarRequest platformCalendarRequest) {

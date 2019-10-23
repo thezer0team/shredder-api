@@ -6,11 +6,7 @@ import com.thezer0team.shredderapi.model.request.UserRequest
 import com.thezer0team.shredderapi.repository.UserRepository
 import groovy.util.logging.Slf4j
 import org.springframework.beans.factory.annotation.Autowired
-<<<<<<< HEAD
-import org.springframework.http.ResponseEntity
-=======
 import org.springframework.beans.factory.annotation.Value
->>>>>>> 151d3bdf74f9b2018677f63e2601d192f996f20f
 import org.springframework.stereotype.Component
 
 @Slf4j
@@ -20,18 +16,12 @@ class UserDao {
     @Autowired
     UserRepository userRepository
 
-//    @Value('${spring.cloud.gcp.datastore.namespace:shredder-dev}')
-    private static final String KEY_PROJECT_ID = 'shredder-dev'
+    @Value('${spring.cloud.gcp.project.id:shredder-dev}')
+    private String keyProjectId
 
     private static final String KEY_KIND = 'UserEntityTable'
 
     UserEntity createNewUser(UserEntity userEntity) {
-<<<<<<< HEAD
-        if(readUserByEmail(userEntity.userEmail).size() > 0) {
-            log.warn("User ${userEntity.userEmail} already exists", new ResourceException("User ${UserRequest.userEmail}"))
-        }
-
-=======
 
         if(readUserByEmail( userEntity.userEmail).size() > 0) {
             log.warn("User ${userEntity.userEmail} already exists", new ResourceException("User ${UserRequest.userEmail}"))
@@ -39,11 +29,10 @@ class UserDao {
 
         userEntity.userId = getNextId(userEntity.userEmail)
 
->>>>>>> 151d3bdf74f9b2018677f63e2601d192f996f20f
         return userRepository.save(userEntity)
     }
 
-    UserEntity readUserById(String userId) {
+    UserEntity readUserById(Key userId) {
         return userRepository.findById(userId).get()
     }
 
@@ -55,19 +44,37 @@ class UserDao {
         return userRepository.findByUserEmail(userEmail)
     }
 
-<<<<<<< HEAD
-    ResponseEntity<List<String>> getAllUsers() {
+    List<String> getAllUserIds() {
+
         List<String> userIdList =  userRepository.findAll().collect {UserEntity userEntity1 ->
-            userEntity1.userId
+            return userEntity1.userId.toString()
         }
 
         return userIdList
     }
-=======
-    private static Key getNextId(String userEmail) {
 
-        return Key.newBuilder(KEY_PROJECT_ID, KEY_KIND, userEmail).build()
+    List<String> getAllUserEmails() {
+
+        List<String> userEmailList =  userRepository.findAll().collect {UserEntity userEntity1 ->
+            return userEntity1.userEmail
+        }
+
+        return userEmailList
     }
 
->>>>>>> 151d3bdf74f9b2018677f63e2601d192f996f20f
+    private Key getNextId(String userEmail) {
+
+        return Key.newBuilder(keyProjectId, KEY_KIND, userEmail).build()
+    }
+
+    UserEntity getUserByEmail(String userEmail) {
+
+        UserEntity user = userRepository.findByUserEmail(userEmail)
+
+        if(!user) {
+            log.warn("Unable to locate account for $userEmail", new ResourceException("$userEmail not found"))
+        }
+git
+        return user
+    }
 }

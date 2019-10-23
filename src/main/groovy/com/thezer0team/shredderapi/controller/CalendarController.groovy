@@ -34,7 +34,7 @@ class CalendarController {
         return new ResponseEntity(applicationCalendarResponse, HttpStatus.CREATED)
     }
 
-    @PostMapping(value = 'platform/create', produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = 'platform/create/{platform}', produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(code = HttpStatus.CREATED)
     ResponseEntity<PlatformCalendarResponse> createPlatformCalendar(@RequestParam(name = 'platform') String platform,
                                                                     @RequestBody @Valid PlatformCalendarRequest platformCalendarRequest) {
@@ -47,4 +47,6 @@ class CalendarController {
 
         return  new ResponseEntity(platformCalendarResponse, HttpStatus.CREATED)
     }
+
+
 }

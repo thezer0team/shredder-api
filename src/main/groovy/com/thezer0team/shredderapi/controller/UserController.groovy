@@ -36,8 +36,18 @@ class UserController {
     }
 
     @GetMapping(value = 'accounts')
-    ResponseEntity<List<String>> getAllUserAccounts() {
+    List<String> getAllUserAccounts() {
 
         return userService.getAllAccounts()
     }
+
+    @PostMapping(value = 'find')
+    @ResponseStatus(code = HttpStatus.ACCEPTED)
+    ResponseEntity<UserResponse> getUser(@RequestBody @Valid UserRequest userRequest) {
+
+        UserEntity userEntity = userService.getUser(userRequest)
+
+        UserResponse response = userService.getResponseFromEntity(userEntity)
+
+        return new ResponseEntity(response, HttpStatus.CREATED)    }
 }
