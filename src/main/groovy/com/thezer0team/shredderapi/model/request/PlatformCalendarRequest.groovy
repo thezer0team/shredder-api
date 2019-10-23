@@ -1,4 +1,4 @@
-package com.thezer0team.shredderapi.dto.request
+package com.thezer0team.shredderapi.model.request
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
@@ -8,8 +8,8 @@ import groovy.transform.Canonical
 @JsonIgnoreProperties(ignoreUnknown = true)
 class PlatformCalendarRequest {
 
-    @JsonProperty('user_email')
-    String userEmail
+    @JsonProperty('url_safe_key')
+    String urlSafeKey
 
     @JsonProperty('source_type')
     String sourceType

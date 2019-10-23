@@ -1,11 +1,12 @@
 package com.thezer0team.shredderapi.repository
 
+import com.google.cloud.datastore.Key
 import com.thezer0team.shredderapi.model.UserEntity
-import org.socialsignin.spring.data.dynamodb.repository.EnableScan
-import org.springframework.data.repository.CrudRepository
-import org.springframework.stereotype.Repository
+import org.springframework.cloud.gcp.data.datastore.repository.DatastoreRepository
 
-@Repository
-@EnableScan
-interface UserRepository extends CrudRepository<UserEntity, String> {
+
+interface UserRepository extends DatastoreRepository<UserEntity, Key> {
+
+    UserEntity findByUserEmail(String userEmail)
+
 }

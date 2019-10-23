@@ -1,4 +1,4 @@
-package com.thezer0team.shredderapi.dto.response
+package com.thezer0team.shredderapi.model.response
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
