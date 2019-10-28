@@ -31,6 +31,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
+	// Swagger
+	implementation 'io.springfox:springfox-swagger2:2.9.2'
+
 	// Groovy
 	implementation 'org.codehaus.groovy:groovy:2.5.8'
 	implementation 'org.codehaus.groovy:groovy-json:2.0.1'
