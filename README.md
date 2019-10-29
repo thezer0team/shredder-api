@@ -1,3 +1,8 @@
+[![GitHub issues](https://img.shields.io/github/issues/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/issues/)
+
+[![Heroku CI Status](https://shredder-api.herokuapp.com/last.svg)](https://dashboard.heroku.com/pipelines/{32ef58f9-aa9b-4ed9-8e42-3993a66d22dc}/tests)
+
+
 # Shredder API
 
 MVP Development api for shredder application. Designed to receive and serve data for Shredder application.
@@ -5,86 +10,72 @@ MVP Development api for shredder application. Designed to receive and serve data
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+This will take you through setting up the shredder-api project on your own machine. This is for Windows.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+- Java 11
+- Groovy
+- Git
+- Gradle
+- Chocolatey (or other package management CLI)
+
+### Installing / Setup
+
+[Chocolatey](https://chocolatey.org/docs/installation#installing-chocolatey) - (Optional) For Chocolatey package management
+
+[GCP_Emulator](https://cloud.google.com/datastore/docs/tools/datastore-emulator) - (Optional) for local development
+
+[Gradle](https://gradle.org/install/) - Use link or Choco install below
 
 ```
-Give examples
+choco install gradle
 ```
 
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+[Heroku-CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install) - Use link or Choco install below
 
 ```
-Give the example
+choco install heroku-cli
 ```
 
-And repeat
+### Running
+
+Test that the application builds
 
 ```
-until finished
+gradlew.bat clean build
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+Run Heroku locally
 
 ```
-Give an example
+heroku local web
 ```
 
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+Application should be running on http://localhost:8080
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+* [Heroku](https://dashboard.heroku.com/apps) - Hosting and deployment
+* [GoogleCloudPlatform](https://cloud.google.com/) - Data services with GCP Datastore
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Springboot](https://spring.io/projects/spring-boot) - Dependency Management 
+* [SpringWeb](https://spring.io/projects/spring-framework) - The web framework used
+* [Groovy](https://groovy-lang.org/documentation.html) - Primary language
+* [SpringCloudGCP](https://spring.io/projects/spring-cloud-gcp) - Data framework
+* [SwaggerUI](https://swagger.io/tools/swagger-ui/) - API Spec
 
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
-
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Nick Williams** 
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
 
 
