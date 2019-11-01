@@ -54,6 +54,8 @@ heroku local web
 
 Application should be running on http://localhost:8080
 
+View swagger on http://localhost:8080/swagger-ui.html
+
 ## Deployment
 
 * [Heroku](https://dashboard.heroku.com/apps) - Hosting and deployment
