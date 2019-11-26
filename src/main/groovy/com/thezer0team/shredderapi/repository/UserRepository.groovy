@@ -7,6 +7,6 @@ import org.springframework.cloud.gcp.data.datastore.repository.DatastoreReposito
 
 interface UserRepository extends DatastoreRepository<UserEntity, Key> {
 
-    UserEntity findByUserEmail(String userEmail)
+    List<UserEntity> findByUserEmail(String userEmail)
 
 }
