@@ -23,7 +23,7 @@ class UserDao {
 
     UserEntity createNewUser(UserEntity userEntity) {
 
-        if(readUserByEmail( userEntity.userEmail).size() > 0) {
+        if(readUserByEmail( userEntity.userEmail)) {
             log.warn("User ${userEntity.userEmail} already exists", new ResourceException("User ${UserRequest.userEmail}"))
         }
 
@@ -40,8 +40,11 @@ class UserDao {
         return userRepository.save(userEntity)
     }
 
-    def readUserByEmail(String userEmail) {
-        return userRepository.findByUserEmail(userEmail)
+    UserEntity readUserByEmail(String userEmail) {
+
+        List<UserEntity> userEntity = userRepository.findByUserEmail(userEmail)
+
+        return userEntity[0]
     }
 
     List<String> getAllUserIds() {

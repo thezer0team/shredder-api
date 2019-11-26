@@ -7,7 +7,7 @@ import org.springframework.cloud.gcp.data.datastore.core.mapping.Reference
 import org.springframework.data.annotation.Id
 
 
-@Entity(name = "users")
+@Entity(name = "UserEntityTable")
 class UserEntity {
 
     @Id
